@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Deliveries</title>
+</head>
+
+<body>
+
+<h2>Delivery Status</h2>
+
+<table border="1" cellpadding="10">
+
+<tr>
+<th>Order ID</th>
+<th>Partner</th>
+<th>Status</th>
+</tr>
+
+{% for delivery in deliveries %}
+<tr>
+<td>{{ delivery.order_id }}</td>
+<td>{{ delivery.partner }}</td>
+<td>{{ delivery.status }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Partner Delivery Dashboard</title>
+
+<style>
+
+body{
+font-family: Arial;
+margin:0;
+display:flex;
+background:#f4f6f9;
+}
+
+/* Sidebar */
+
+.sidebar{
+width:220px;
+background:#2c3e50;
+color:white;
+height:100vh;
+padding-top:20px;
+}
+
+.sidebar h2{
+text-align:center;
+margin-bottom:30px;
+}
+
+.sidebar a{
+display:block;
+color:white;
+padding:12px 20px;
+text-decoration:none;
+}
+
+.sidebar a:hover{
+background:#34495e;
+}
+
+/* Main Content */
+
+.main{
+flex:1;
+padding:20px;
+}
+
+.header{
+background:white;
+padding:15px;
+box-shadow:0 0 5px gray;
+margin-bottom:20px;
+}
+
+/* Cards */
+
+.cards{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:8px;
+box-shadow:0 0 5px gray;
+width:200px;
+text-align:center;
+}
+
+/* Table */
+
+table{
+width:100%;
+margin-top:20px;
+border-collapse:collapse;
+background:white;
+}
+
+th,td{
+border:1px solid #ccc;
+padding:10px;
+text-align:center;
+}
+
+th{
+background:#34495e;
+color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<h2>Dashboard</h2>
+
+<a href="/">Home</a>
+<a href="/orders/">Orders</a>
+<a href="/partners/">Partners</a>
+<a href="/deliveries/">Deliveries</a>
+<a href="/payments/">Payments</a>
+<a href="#">Settings</a>
+
+</div>
+
+<div class="main">
+
+<div class="header">
+<h2>Partner / Delivery Dashboard</h2>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<h3>Total Orders</h3>
+<p>{{ total_orders }}</p>
+</div>
+
+<div class="card">
+<h3>Delivered Orders</h3>
+<p>{{ delivered_orders }}</p>
+</div>
+
+<div class="card">
+<h3>Pending Orders</h3>
+<p>{{ pending_orders }}</p>
+</div>
+
+<div class="card">
+<h3>Total Partners</h3>
+<p>{{ total_partners }}</p>
+</div>
+
+</div>
+
+<h3>Recent Orders</h3>
+
+<table>
+
+<tr>
+<th>Order ID</th>
+<th>Customer</th>
+<th>Status</th>
+</tr>
+
+{% for order in orders %}
+<tr>
+<td>{{ order.id }}</td>
+<td>{{ order.customer }}</td>
+<td>{{ order.status }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+</html>
